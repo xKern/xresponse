@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 DESCRIPTION = 'Reusable Responses and Error responses for xKern APIs'
 LONG_DESCRIPTION = Path('README.md').read_text()
 

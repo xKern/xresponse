@@ -5,8 +5,9 @@ from .response import XResponse
 def xkern_exception_handler(exc, context):
     response = exception_handler(exc, context)
 
+    status_code = response.status_code or 900
     return XResponse(
-        code=response.status_code,
+        code=status_code,
         message=str(exc),
         data=[]
     )
