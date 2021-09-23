@@ -18,7 +18,23 @@ class XResponse(Response):
         )
 
 
-class InvalidPayloadError(XResponse):
+class XError(Response):
+    def __init__(self,
+                 data=None,
+                 code=999,
+                 message='unexpected error occured'):
+        response_data = {
+            'code': code,
+            'message': message,
+            'data': data
+        }
+        return super().__init__(
+            status=599,
+            data=response_data
+        )
+
+
+class InvalidPayloadError(XError):
     def __init__(self, data=[]):
         super().__init__(
             code=INVALID_PAYLOAD,
@@ -27,7 +43,7 @@ class InvalidPayloadError(XResponse):
         )
 
 
-class MissingHeadersError(XResponse):
+class MissingHeadersError(XError):
     def __init__(self, headers=[]):
         super().__init__(
             code=MISSING_HEADERS,
