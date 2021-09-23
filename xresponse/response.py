@@ -29,7 +29,7 @@ class InvalidPayloadError(XResponse):
 
 class MissingHeadersError(XResponse):
     def __init__(self, headers=[]):
-        super().__init(
+        super().__init__(
             code=MISSING_HEADERS,
             message='Invalid or missing headers',
             data=headers,
