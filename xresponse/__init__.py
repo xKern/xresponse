@@ -1,4 +1,5 @@
 from .response import (XResponse,
+                       XError,
                        InvalidPayloadError,
                        MissingHeadersError)
 from .exception_handler import xkern_exception_handler
