@@ -4,8 +4,11 @@ from .response import XError
 
 def xkern_exception_handler(exc, context):
     response = exception_handler(exc, context)
+    try:
+        status_code = response.status_code
+    except AttributeError:
+        status_code = 999
 
-    status_code = response.status_code or 900
     return XError(
         code=status_code,
         message=str(exc),
