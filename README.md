@@ -14,7 +14,7 @@ XResponse is a very simple package that has some reusable responses for DRF to b
 
 ```
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'my_project.my_app.utils.custom_exception_handler'
+    'EXCEPTION_HANDLER': 'xresponse.exception_handler'
 }
 ```
 
