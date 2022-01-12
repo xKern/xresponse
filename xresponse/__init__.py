@@ -5,10 +5,13 @@ from .response import (XResponse,
 from .exception_handler import (
     xkern_exception_handler as exception_handler
 )
+from . import error_handler
 
 __all__ = [
     'XResponse',
+    'XError',
     'InvalidPayloadError',
     'MissingHeadersError',
-    'exception_handler'
+    'exception_handler',
+    'error_handler'
 ]
