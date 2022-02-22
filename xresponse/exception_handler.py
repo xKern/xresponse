@@ -33,10 +33,10 @@ def xkern_exception_handler(exc, context):
         #     data = exc.detail
         # else:
         #     data = {'detail': exc.detail}
-        data = exc.detail
+        message = exc.detail
 
         set_rollback()
-        return XResponse(data=data, code=exc.status_code)
+        return XResponse(message=message, code=exc.status_code, data=[])
         # return XResponse(data, status=exc.status_code, headers=headers)
 
     return None
