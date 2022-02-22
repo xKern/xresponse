@@ -32,7 +32,19 @@ def xkern_exception_handler(exc, context):
         # else:
         #     data = {'detail': exc.detail}
         message = exc.detail
+        try:
+            error_code = exc.detail.code
+            """
+            DRF Permissions default code set to a string.
+            However we explicitly need an integer to be returned in the
+            response.
+            """
+            if isinstance(error_code, str):
+                error_code = 999
+        except AttributeError:
+            error_code = 999
+
         set_rollback()
-        return XResponse(message=message, code=exc.status_code)
+        return XResponse(message=message, code=error_code)
 
     return None
