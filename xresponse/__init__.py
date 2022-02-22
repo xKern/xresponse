@@ -5,6 +5,7 @@ from .response import (XResponse,
 from .exception_handler import (
     xkern_exception_handler as exception_handler
 )
+from . import permissions
 from . import error_handler
 
 __all__ = [
@@ -13,5 +14,6 @@ __all__ = [
     'InvalidPayloadError',
     'MissingHeadersError',
     'exception_handler',
-    'error_handler'
+    'error_handler',
+    'permissions'
 ]

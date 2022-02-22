@@ -1,12 +1,10 @@
 from rest_framework.views import (
-    exception_handler,
     set_rollback
 )
 from django.core.exceptions import PermissionDenied
 from rest_framework import exceptions
 from django.http import Http404
 from . import XResponse
-from .response import XError
 
 
 def xkern_exception_handler(exc, context):
@@ -34,9 +32,7 @@ def xkern_exception_handler(exc, context):
         # else:
         #     data = {'detail': exc.detail}
         message = exc.detail
-
         set_rollback()
-        return XResponse(message=message, code=exc.status_code, data=[])
-        # return XResponse(data, status=exc.status_code, headers=headers)
+        return XResponse(message=message, code=exc.status_code)
 
     return None
