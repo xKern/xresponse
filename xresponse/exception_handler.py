@@ -45,6 +45,6 @@ def xkern_exception_handler(exc, context):
             error_code = 999
 
         set_rollback()
-        return XResponse(message=message, code=error_code)
+        return XResponse(message=message, code=error_code, data=None)
 
     return None
